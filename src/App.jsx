@@ -201,7 +201,7 @@ function App() {
           <div className="hero-copy">
             <h1 id="hero-title">Abigail Licata</h1>
             <p className="role">PhD candidate in neuroscience at the University of Geneva.</p>
-            <p className="statement">How languages shape<br />the conceptual brain.</p>
+            <p className="statement">Neuroimaging, Language, Open Scienc.</p>
             <a className="primary-link" href="#research">
               Discover my research <ArrowDownRight size={19} />
             </a>
