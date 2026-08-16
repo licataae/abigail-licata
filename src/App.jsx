@@ -242,7 +242,7 @@ function Header() {
             {label}
           </a>
         ))}
-        <a className="contact-link" href="mailto:abigail.licata@unige.ch">
+        <a className="contact-link" href="mailto:alicata3098@gmail.com">
           Contact <ArrowUpRight size={16} />
         </a>
       </nav>
@@ -349,7 +349,6 @@ function App() {
             <h1 id="hero-title">Abigail Licata</h1>
             <SocialLinks />
             <p className="role">PhD candidate in neuroscience at the University of Geneva.</p>
-            <p className="statement">Neuroimaging. Language. Open Science.</p>
             <a className="primary-link" href="#about">
               Learn more <ArrowDownRight size={19} />
             </a>
@@ -410,7 +409,7 @@ function App() {
         <section className="experience-section" id="experience" aria-labelledby="experience-title">
           <div className="experience-heading">
             <span className="section-index">02</span>
-            <h2 id="experience-title">Education &amp;<br />experience</h2>
+            <h2 id="experience-title">Education &amp;<br />Experience</h2>
           </div>
           <ExperienceMap />
         </section>
@@ -494,7 +493,7 @@ function App() {
         <div className="footer-links">
           <a href="https://archive-ouverte.unige.ch/contributor/991158" target="_blank" rel="noreferrer">UNIGE archive <ArrowUpRight size={15} /></a>
           <a href="https://noce-lab.github.io/" target="_blank" rel="noreferrer">NoCE Lab <ArrowUpRight size={15} /></a>
-          <a href="mailto:abigail.licata@unige.ch">Contact <ArrowUpRight size={15} /></a>
+          <a href="mailto:alicata3098@gmail.com">Contact <ArrowUpRight size={15} /></a>
         </div>
         <span>Geneva · Switzerland</span>
       </footer>
