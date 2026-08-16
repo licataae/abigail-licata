@@ -372,17 +372,17 @@ function App() {
 
           <div className="research-intro">
             <p>
-              I am a cognitive neuroscience PhD student with a background in neuroscience
-              and biology (B.Sc.) and neurocognitive psychology (M.Sc.). I have worked in
+              I’m a cognitive neuroscience PhD student with a background in neuroscience
+              (B.Sc.) and neurocognitive psychology (M.Sc.). I have worked in
               laboratories and clinics across four countries, integrating multimodal
               neuroimaging with behavioral and neuropsychological assessments to study
-              language (dis)function across the lifespan. My key interests include language
-              function in primary progressive aphasia, cross-linguistic transfer in
+              language function across the lifespan. My key interests include language
+              impairment in primary progressive aphasia, cross-linguistic transfer in
               multilingualism, and the neural basis of lexical-semantic knowledge. I am
               heavily engaged in the open science movement, volunteering with several
               organizations and co-organizing events that help researchers engage with and
-              learn about FAIR practices in psychology and neuroscience. I also collaborate
-              on the{' '}
+              learn about FAIR practices in psychology and neuroscience. I also am a collaborator
+              in the{' '}
               <a
                 href="https://smallworldofwords.org/fr/project"
                 target="_blank"
@@ -401,7 +401,7 @@ function App() {
             <p>
               Outside of my research and volunteer work, I am a mom to a little tot, a dancer,
               a swimmer, a roller-skater, and a friend to some of the most wonderful people in
-              the world—hopefully that will include you, too :)
+              the world—hopefully that includes you, too :)
             </p>
           </div>
         </section>
