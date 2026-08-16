@@ -1,6 +1,6 @@
 # Abigail Licata — Academic portfolio
 
-Academic portfolio for Abigail Licata, PhD candidate in neuroscience at the University of Geneva.
+Academic portfolio
 
 ## Local development
 
