@@ -63,7 +63,10 @@ a:focus-visible {
   position: fixed;
   inset: 0;
   z-index: -3;
-  background: var(--bg) url('/brain-background.jpg') center center / cover no-repeat;
+  background-color: var(--bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.72;
   pointer-events: none;
 }

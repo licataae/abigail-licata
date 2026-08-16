@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, Mail, Menu, X } from 'lucide-react'
 import { publications } from './data/publications'
 
+const assetPath = (filename) => `${import.meta.env.BASE_URL}${filename}`
+
 const experiences = [
   {
     city: 'Geneva', country: 'Switzerland',
@@ -254,7 +256,7 @@ function ExperienceMap() {
       <div className="experience-map">
         <img
           className="map-geography"
-          src="/atlantic-map.svg"
+          src={assetPath('atlantic-map.svg')}
           alt="Map marking Geneva, San Sebastián, San Francisco, Baltimore, Munich and Cincinnati."
         />
       </div>
@@ -333,7 +335,11 @@ function SocialLinks() {
 function App() {
   return (
     <div className="site-shell" id="top">
-      <div className="neuron-background" aria-hidden="true" />
+      <div
+        className="neuron-background"
+        style={{ backgroundImage: `url(${assetPath('brain-background.jpg')})` }}
+        aria-hidden="true"
+      />
       <div className="ambient-shade" aria-hidden="true" />
       <Header />
 
@@ -359,7 +365,7 @@ function App() {
             <div className="about-portrait-frame">
               <img
                 className="about-portrait"
-                src="/abigail-portrait.jpeg"
+                src={assetPath('abigail-portrait.jpeg')}
                 alt="Abigail Licata smiling in a garden."
               />
             </div>
