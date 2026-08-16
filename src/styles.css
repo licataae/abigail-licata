@@ -124,7 +124,7 @@ a:focus-visible {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(2rem, 4vw, 4.5rem);
+  gap: clamp(1rem, 2.2vw, 2.5rem);
   color: #c8c5b8;
   font-size: 0.94rem;
 }
@@ -261,14 +261,15 @@ main {
 }
 
 .research-section,
-.about-section,
-.publications-section {
+.publications-section,
+.experience-section,
+.profile-section {
   margin: 0 var(--gutter);
   border-top: 1px solid var(--line);
 }
 
 .research-section {
-  padding: clamp(2.5rem, 3vw, 4rem) 0 0;
+  padding: clamp(5rem, 8vw, 8rem) 0;
   display: grid;
   grid-template-columns: 0.84fr 1.16fr;
   column-gap: clamp(3rem, 8vw, 9rem);
@@ -307,11 +308,194 @@ main {
   max-width: 650px;
   color: #c5c3b8;
   font-size: clamp(0.98rem, 1.15vw, 1.08rem);
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .research-intro p {
-  margin: 0 0 0.45rem;
+  margin: 0 0 1.35rem;
+}
+
+.experience-section {
+  padding: clamp(5rem, 9vw, 9rem) 0;
+}
+
+.experience-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.experience-heading h2,
+.profile-section-heading h2 {
+  margin: 0;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.experience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: stretch;
+}
+
+.experience-map {
+  position: relative;
+  min-height: 520px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-map svg {
+  position: absolute;
+  inset: 8% 2% 10%;
+  width: 96%;
+  height: 82%;
+  overflow: visible;
+}
+
+.map-line {
+  fill: rgba(235, 232, 215, 0.015);
+  stroke: rgba(235, 232, 215, 0.3);
+  stroke-width: 0.24;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-line-muted {
+  fill: none;
+  stroke: rgba(214, 110, 54, 0.15);
+  stroke-dasharray: 1 1.5;
+}
+
+.map-pin {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #aaa99a;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translate(-6px, -50%);
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.pin-dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 0 0 4px rgba(214, 110, 54, 0.08);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.map-pin:hover,
+.map-pin.is-active {
+  color: var(--ivory);
+}
+
+.map-pin.is-active .pin-dot {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+.map-instruction {
+  position: absolute;
+  left: 0;
+  bottom: 1.5rem;
+  margin: 0;
+  color: #77796f;
+  font-size: 0.72rem;
+}
+
+.experience-detail {
+  border-top: 1px solid var(--line);
+}
+
+.experience-location {
+  margin: 0;
+  padding: 1.5rem 0;
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-detail article {
+  padding: 1.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-detail article > span,
+.profile-list article > span {
+  color: #77796f;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.experience-detail h3,
+.profile-list h3 {
+  margin: 0.55rem 0 0;
+  color: var(--ivory);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.experience-detail article p,
+.profile-list article p {
+  margin: 0.55rem 0 0;
+  color: #94958b;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.profile-section {
+  padding: clamp(5rem, 9vw, 9rem) 0;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.32fr);
+  gap: clamp(3rem, 9vw, 10rem);
+}
+
+.profile-section-heading p {
+  max-width: 330px;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.profile-section-heading .section-index {
+  display: block;
+  padding: 0 0 1.5rem;
+}
+
+.profile-list {
+  border-top: 1px solid var(--line);
+}
+
+.profile-list article {
+  padding: 1.6rem 0;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-list h3 {
+  margin-top: 0;
 }
 
 .research-areas {
@@ -671,6 +855,55 @@ footer a {
 
   .research-intro {
     margin-top: 3.5rem;
+  }
+
+  .experience-section,
+  .profile-section {
+    padding: 5rem 0;
+  }
+
+  .experience-heading {
+    gap: 1rem;
+  }
+
+  .experience-heading h2,
+  .profile-section-heading h2 {
+    font-size: clamp(3.4rem, 14vw, 5.2rem);
+  }
+
+  .experience-layout,
+  .profile-section {
+    display: block;
+  }
+
+  .experience-map {
+    min-height: 390px;
+  }
+
+  .experience-detail,
+  .profile-list {
+    margin-top: 3rem;
+  }
+
+  .map-pin {
+    font-size: 0.58rem;
+  }
+
+  .map-pin > span:last-child {
+    display: none;
+  }
+
+  .map-pin.is-active > span:last-child {
+    display: inline;
+  }
+
+  .profile-section-heading p {
+    margin-top: 1.5rem;
+  }
+
+  .profile-list article {
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 1.2rem;
   }
 
   .research-areas {

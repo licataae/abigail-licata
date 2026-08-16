@@ -2,25 +2,82 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, Menu, X } from 'lucide-react'
 import { publications } from './data/publications'
 
-const researchAreas = [
+const experiences = [
   {
-    number: '01',
-    title: 'Cross-linguistic influences of lexical semantics',
-    description: 'How experience across languages shapes the way concepts are represented and connected to one another.',
+    city: 'Geneva', country: 'Switzerland', x: 77, y: 46,
+    entries: [
+      ['2024–present', 'Graduate Teaching Assistant', 'University of Geneva'],
+      ['2022–present', 'Ph.D. in Neuroscience · Graduate Research Assistant', 'University of Geneva · NoCE Lab'],
+    ],
   },
   {
-    number: '02',
-    title: 'Multimodal neuroimaging',
-    description: 'Tracing the spatial and temporal dynamics of lexical semantic knowledge using a multimodal approach.',
+    city: 'San Sebastián', country: 'Spain', x: 62, y: 49,
+    entries: [['Summer 2025', 'Guest Researcher', 'Brain Rhythms and Cognition Lab · Basque Center on Cognition, Brain and Language']],
   },
   {
-    number: '03',
-    title: 'Open science',
-    description: 'Building FAIR and collaborative research practices in neuroscience.',
+    city: 'San Francisco', country: 'USA', x: 13, y: 49,
+    entries: [['2020–2022', 'Staff Research Associate III · Imaging Data Assistant', 'UCSF Memory and Aging Center · ALBA Lab']],
+  },
+  {
+    city: 'Baltimore', country: 'USA', x: 41, y: 35,
+    entries: [['Summer 2019', 'Guest Researcher', 'Language Neuromodulation Lab · Johns Hopkins School of Medicine']],
+  },
+  {
+    city: 'Munich', country: 'Germany', x: 75, y: 29,
+    entries: [
+      ['2017–2019', 'Graduate Research Assistant', 'Klinikum rechts der Isar · TUM'],
+      ['2016–2018', 'M.Sc. in Neuro-Cognitive Psychology', 'Ludwig Maximilian University of Munich'],
+    ],
+  },
+  {
+    city: 'Cincinnati', country: 'USA', x: 30, y: 45,
+    entries: [
+      ['Spring 2016', 'Undergraduate Teaching Assistant', 'University of Cincinnati'],
+      ['2015–2016', 'Laboratory Manager', 'Laboratory for Cognitive and Affective Neuropsychology'],
+      ['Summer 2015', 'Undergraduate Research Fellow', 'SUMR-UC Fellowship'],
+      ['2012–2016', 'B.Sc. in Neuroscience', 'University of Cincinnati'],
+    ],
   },
 ]
 
-const navItems = ['Research', 'About', 'Publications', 'Volunteer Experience']
+const outreachItems = [
+  ['2025–present', 'Open Science Delegate', 'actionuni der Schweizer Mittelbau'],
+  ['2025–present', 'Steering Committee Member', 'Global ReproducibiliTea Steering Committee'],
+  ['2025–present', 'Student Representative', 'Lemanic Neuroscience Doctoral School'],
+  ['2024–2025', 'Co-organizer', 'R Quarto Workshop for Reproducible Research'],
+  ['2024–present', 'Member', 'Swiss Reproducibility Network Academy'],
+  ['2023–present', 'Co-organizer', 'ReproducibiliTea Journal Club Geneva'],
+  ['2022–present', 'Member', 'Swiss Reproducibility Network · Geneva Node'],
+  ['2022–2025', 'Board Member', 'Women in Neuroscience Repository'],
+  ['2022', 'Local Event Organizer', 'Brainhack Geneva'],
+  ['2016–2018', 'Member', 'Elite Network of Bavaria'],
+  ['2015–2016', 'Member', 'Fossil Free UC'],
+  ['2014–2016', 'Member', 'University of Cincinnati NeuroSociety'],
+  ['2013', 'Co-President', 'University of Cincinnati Clermont College Psychology Club'],
+]
+
+const grants = [
+  ['2025', 'Grant supporting Open Science Education', 'University of Geneva'],
+  ['2025', 'Jean Falk-Vairant Award', 'Lemanic Neuroscience Doctoral School'],
+  ['2025', 'Doc-Mobility Research Grant', 'University of Geneva'],
+  ['June 2023', '12th Summer School', 'International Max Planck Research School'],
+  ['2017–2019', 'German Academic Exchange Service Scholarship', 'DAAD'],
+  ['2016', 'Arthur Bills Award for Outstanding Undergraduate Research', 'University of Cincinnati'],
+  ['2015', 'SUMR-UC Fellowship', 'University of Cincinnati'],
+  ['2014–2016', 'Cincinnatus Scholarship', 'University of Cincinnati'],
+]
+
+const teachingItems = [
+  ['2024–present', 'Graduate Teaching Assistant', 'Cognitive Neuroscience of Language · University of Geneva'],
+  ['2025–present', 'Master’s thesis mentor · Enrique Marcos', 'MEG data collection and N400 responses to French ambiguous words and sentences'],
+  ['2025–present', 'Master’s thesis mentor · Thomas Hill', 'Cross-linguistic differences in motion events using non-verbal cognitive tasks'],
+  ['2023–2025', 'Master’s thesis mentor · Lina Langauer', 'Free word associations and parametric modulation analysis of fMRI data'],
+  ['2023–2025', 'Master’s thesis mentor · Tatiana Falquet', 'Behavioral paradigm design, Python, inverse multidimensional scaling and preregistration'],
+  ['June 2023', 'Research methods mentor · Susanne Cambi', 'Audio transcription workflows, R, Python, Git and reproducible project organization'],
+  ['Spring 2016', 'Undergraduate Teaching Assistant', 'Research Methods in Neuropsychology · University of Cincinnati'],
+]
+
+const navItems = ['About', 'Experience', 'Publications', 'Outreach', 'Grants', 'Teaching']
 
 function mulberry32(seed) {
   return () => {
@@ -189,6 +246,66 @@ function Header() {
   )
 }
 
+function ExperienceMap() {
+  const [selectedCity, setSelectedCity] = useState('Geneva')
+  const selected = experiences.find((experience) => experience.city === selectedCity)
+
+  return (
+    <div className="experience-layout">
+      <div className="experience-map" aria-label="Map of education and work experience">
+        <svg viewBox="0 0 100 62" role="img" aria-labelledby="map-title map-description">
+          <title id="map-title">Academic experience across the United States and Europe</title>
+          <desc id="map-description">Locations in Cincinnati, Munich, San Francisco and Geneva.</desc>
+          <path className="map-line" d="M2 12 8 7 17 6 24 9 31 8 37 13 35 19 39 24 35 30 31 33 30 42 25 49 20 48 16 41 12 37 8 31 5 27 7 20Z" />
+          <path className="map-line" d="M58 5 63 3 68 6 70 10 75 11 78 16 77 22 82 25 79 30 73 31 70 38 66 41 62 36 60 29 55 25 57 19 54 14Z" />
+          <path className="map-line map-line-muted" d="M36 20 C45 17 52 18 59 21 M34 29 C45 27 54 28 63 31" />
+        </svg>
+        {experiences.map((experience) => (
+          <button
+            className={selectedCity === experience.city ? 'map-pin is-active' : 'map-pin'}
+            key={experience.city}
+            style={{ left: `${experience.x}%`, top: `${experience.y}%` }}
+            type="button"
+            onClick={() => setSelectedCity(experience.city)}
+            aria-pressed={selectedCity === experience.city}
+          >
+            <span className="pin-dot" />
+            <span>{experience.city}</span>
+          </button>
+        ))}
+        <p className="map-instruction">Select a location to explore the experience</p>
+      </div>
+
+      <div className="experience-detail" aria-live="polite">
+        <p className="experience-location">{selected.city} · {selected.country}</p>
+        {selected.entries.map(([period, role, organization]) => (
+          <article key={`${period}-${role}`}>
+            <span>{period}</span>
+            <h3>{role}</h3>
+            <p>{organization}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function ProfileList({ items }) {
+  return (
+    <div className="profile-list">
+      {items.map(([period, title, detail]) => (
+        <article key={`${period}-${title}`}>
+          <span>{period}</span>
+          <div>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  )
+}
+
 function App() {
   return (
     <div className="site-shell" id="top">
@@ -201,74 +318,43 @@ function App() {
           <div className="hero-copy">
             <h1 id="hero-title">Abigail Licata</h1>
             <p className="role">PhD candidate in neuroscience at the University of Geneva.</p>
-            <p className="statement">Neuroimaging, Language, Open Scienc.</p>
-            <a className="primary-link" href="#research">
-              Discover my research <ArrowDownRight size={19} />
+            <p className="statement">Neuroimaging, Language, Open Science.</p>
+            <a className="primary-link" href="#about">
+              Learn more <ArrowDownRight size={19} />
             </a>
           </div>
           <span className="scroll-note" aria-hidden="true">Scroll to explore <i /></span>
         </section>
 
-        <section className="research-section" id="research" aria-labelledby="research-title">
+        <section className="research-section" id="about" aria-labelledby="about-title">
           <div className="section-heading">
             <span className="section-index">01</span>
-            <h2 id="research-title">About the research</h2>
+            <h2 id="about-title">About</h2>
           </div>
 
           <div className="research-intro">
             <p>
-              I study the neurocognitive correlates of semantic knowledge in bilingual
-              and multilingual speakers.
+              With a background in the neuroimaging of language function in both healthy
+              and clinical populations, and research experience across three countries,
+              my research interests span language (dis)function across the lifespan,
+              cross-linguistic influences on language processing in multilingual speakers,
+              and open and reproducible neuroimaging practices.
             </p>
             <p>
-              My doctoral project examines how semantic similarity and cross-linguistic
-              experience shape conceptual representations in the brain.
+              My doctoral project examines cross-linguistic influences on the behavioral
+              and neural underpinnings of word processing, and the role of semantic control
+              during the processing of ambiguous words and sentences, as measured via
+              magnetoencephalography.
             </p>
-          </div>
-
-          <div className="research-areas">
-            {researchAreas.map((area) => (
-              <article className="research-area" key={area.number}>
-                <span className="area-number">{area.number}</span>
-                <div>
-                  <h3>{area.title}</h3>
-                  <p>{area.description}</p>
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
-        <section className="about-section" id="about" aria-labelledby="about-title">
-          <div className="about-copy">
+        <section className="experience-section" id="experience" aria-labelledby="experience-title">
+          <div className="experience-heading">
             <span className="section-index">02</span>
-            <h2 id="about-title">Concepts live between languages.</h2>
-            <p>
-              I am a PhD candidate in the Lemanic Neuroscience Doctoral School and a
-              member of the Neurobiology of Concepts Expression Laboratory at UNIGE.
-              I use behavioural and neuroimaging methods to investigate how semantic
-              knowledge is organised across languages.
-            </p>
+            <h2 id="experience-title">Education &amp;<br />experience</h2>
           </div>
-
-          <dl className="profile-details">
-            <div>
-              <dt>Affiliation</dt>
-              <dd>University of Geneva · FPSE</dd>
-            </div>
-            <div>
-              <dt>Laboratory</dt>
-              <dd><a href="https://noce-lab.github.io/" target="_blank" rel="noreferrer">NoCE Lab <ArrowUpRight size={14} /></a></dd>
-            </div>
-            <div>
-              <dt>Doctoral school</dt>
-              <dd>Lemanic Neuroscience Doctoral School</dd>
-            </div>
-            <div>
-              <dt>Research network</dt>
-              <dd>NCCR Evolving Language</dd>
-            </div>
-          </dl>
+          <ExperienceMap />
         </section>
 
         <section className="publications-section" id="publications" aria-labelledby="publications-title">
@@ -310,6 +396,33 @@ function App() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="profile-section" id="outreach" aria-labelledby="outreach-title">
+          <div className="profile-section-heading">
+            <span className="section-index">04</span>
+            <h2 id="outreach-title">Outreach</h2>
+            <p>Building communities around open, collaborative and reproducible science.</p>
+          </div>
+          <ProfileList items={outreachItems} />
+        </section>
+
+        <section className="profile-section" id="grants" aria-labelledby="grants-title">
+          <div className="profile-section-heading">
+            <span className="section-index">05</span>
+            <h2 id="grants-title">Grants</h2>
+            <p>Competitive support for research, mobility and open science education.</p>
+          </div>
+          <ProfileList items={grants} />
+        </section>
+
+        <section className="profile-section" id="teaching" aria-labelledby="teaching-title">
+          <div className="profile-section-heading">
+            <span className="section-index">06</span>
+            <h2 id="teaching-title">Teaching</h2>
+            <p>Teaching and mentoring across neuroscience, language and reproducible methods.</p>
+          </div>
+          <ProfileList items={teachingItems} />
         </section>
       </main>
 
