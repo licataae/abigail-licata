@@ -5,22 +5,22 @@ import { publications } from './data/publications'
 const researchAreas = [
   {
     number: '01',
-    title: 'Multilingual semantics',
-    description: 'How experience across languages shapes the way concepts are represented and accessed.',
+    title: 'Cross-linguistic influences of lexical semantics',
+    description: 'How experience across languages shapes the way concepts are represented and connected to one another.',
   },
   {
     number: '02',
-    title: 'Language neuroimaging',
-    description: 'Tracing the spatial and temporal dynamics of semantic knowledge with a multimodal approach.',
+    title: 'Multimodal neuroimaging',
+    description: 'Tracing the spatial and temporal dynamics of lexical semantic knowledge using a multimodal approach.',
   },
   {
     number: '03',
     title: 'Open science',
-    description: 'Building transparent, reproducible and collaborative research practices in neuroscience.',
+    description: 'Building FAIR and collaborative research practices in neuroscience.',
   },
 ]
 
-const navItems = ['Research', 'About', 'Publications']
+const navItems = ['Research', 'About', 'Publications', 'Volunteer Experience']
 
 function mulberry32(seed) {
   return () => {
