@@ -343,7 +343,7 @@ function App() {
             <h1 id="hero-title">Abigail Licata</h1>
             <SocialLinks />
             <p className="role">PhD candidate in neuroscience at the University of Geneva.</p>
-            <p className="statement">Neuroimaging, Language, Open Science.</p>
+            <p className="statement">Neuroimaging. Language. Open Science.</p>
             <a className="primary-link" href="#about">
               Learn more <ArrowDownRight size={19} />
             </a>
@@ -351,24 +351,52 @@ function App() {
         </section>
 
         <section className="research-section" id="about" aria-labelledby="about-title">
-          <div className="section-heading">
-            <span className="section-index">01</span>
-            <h2 id="about-title">About</h2>
+          <div className="about-visual">
+            <div className="section-heading">
+              <span className="section-index">01</span>
+              <h2 id="about-title">About</h2>
+            </div>
+            <div className="about-portrait-frame">
+              <img
+                className="about-portrait"
+                src="/abigail-portrait.jpeg"
+                alt="Abigail Licata smiling in a garden."
+              />
+            </div>
           </div>
 
           <div className="research-intro">
             <p>
-              With a background in the neuroimaging of language function in both healthy
-              and clinical populations, and research experience across four countries,
-              my research interests span language (dis)function across the lifespan,
-              cross-linguistic influences on language processing in multilingual speakers,
-              and open and reproducible neuroimaging practices.
+              I am a cognitive neuroscience PhD student with a background in neuroscience
+              and biology (B.Sc.) and neurocognitive psychology (M.Sc.). I have worked in
+              laboratories and clinics across four countries, integrating multimodal
+              neuroimaging with behavioral and neuropsychological assessments to study
+              language (dis)function across the lifespan. My key interests include language
+              function in primary progressive aphasia, cross-linguistic transfer in
+              multilingualism, and the neural basis of lexical-semantic knowledge. I am
+              heavily engaged in the open science movement, volunteering with several
+              organizations and co-organizing events that help researchers engage with and
+              learn about FAIR practices in psychology and neuroscience. I also collaborate
+              on the{' '}
+              <a
+                href="https://smallworldofwords.org/fr/project"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Small World of Words project
+              </a>
+              .
             </p>
             <p>
-              My doctoral project examines cross-linguistic influences on the behavioral
-              and neural underpinnings of word processing, and the role of semantic control
-              during the processing of ambiguous words and sentences, as measured via
-              magnetoencephalography.
+              Currently, I am working toward my PhD in neuroscience, focusing on
+              cross-linguistic influences on the behavioral and neural underpinnings of word
+              processing and the role of semantic control in processing ambiguous words and
+              sentences, as measured using magnetoencephalography.
+            </p>
+            <p>
+              Outside of my research and volunteer work, I am a mom to a little tot, a dancer,
+              a swimmer, a roller-skater, and a friend to some of the most wonderful people in
+              the world—hopefully that will include you, too :)
             </p>
           </div>
         </section>
@@ -442,14 +470,21 @@ function App() {
           <div className="profile-section-heading">
             <span className="section-index">06</span>
             <h2 id="teaching-title">Teaching &amp; Mentoring</h2>
-            <p>Teaching and mentorship across language, cognitive psychology and neuroscience.</p>
           </div>
           <ProfileList items={teachingItems} />
         </section>
       </main>
 
       <footer>
-        <span>Abigail Licata</span>
+        <div className="footer-identity">
+          <span>Abigail Licata</span>
+          <small>
+            Background image by{' '}
+            <a href="https://unsplash.com/@julientromeur" target="_blank" rel="noreferrer">Julien Tromeur</a>
+            {' '}on{' '}
+            <a href="https://unsplash.com/photos/VY_Io5Ik3u4" target="_blank" rel="noreferrer">Unsplash</a>
+          </small>
+        </div>
         <div className="footer-links">
           <a href="https://archive-ouverte.unige.ch/contributor/991158" target="_blank" rel="noreferrer">UNIGE archive <ArrowUpRight size={15} /></a>
           <a href="https://noce-lab.github.io/" target="_blank" rel="noreferrer">NoCE Lab <ArrowUpRight size={15} /></a>
