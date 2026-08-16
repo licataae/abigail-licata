@@ -226,11 +226,64 @@ section[id] {
   text-wrap: balance;
 }
 
+.social-links {
+  margin-top: 1.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.social-links a {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: #b8b5aa;
+  border: 1px solid rgba(235, 232, 215, 0.22);
+  border-radius: 50%;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.social-links a:hover {
+  color: var(--bg);
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.social-links .bluesky-icon {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-lettermark {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.social-linkedin {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .role {
   margin: 2.25rem 0 0;
   color: var(--muted);
   font-size: clamp(0.96rem, 1.2vw, 1.17rem);
   letter-spacing: -0.015em;
+}
+
+.social-links + .role {
+  margin-top: 1.4rem;
 }
 
 .statement {
@@ -326,28 +379,6 @@ section[id] {
 
 .experience-layout {
   display: block;
-}
-
-.map-prompt {
-  max-width: 760px;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.map-prompt strong {
-  color: var(--ivory);
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.45rem);
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.map-prompt span {
-  color: #88897f;
-  font-size: 0.78rem;
-  line-height: 1.5;
 }
 
 .experience-map {
@@ -876,12 +907,6 @@ footer a {
   .experience-list,
   .profile-list {
     margin-top: 3rem;
-  }
-
-  .map-prompt {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.65rem;
   }
 
   .experience-list {

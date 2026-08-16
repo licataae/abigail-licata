@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, Menu, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Mail, Menu, X } from 'lucide-react'
 import { publications } from './data/publications'
 
 const experiences = [
@@ -251,9 +251,6 @@ function Header() {
 function ExperienceMap() {
   return (
     <div className="experience-layout">
-      <div className="map-prompt">
-        <strong>Education and research across six locations.</strong>
-      </div>
       <div className="experience-map">
         <img
           className="map-geography"
@@ -299,6 +296,40 @@ function ProfileList({ items }) {
   )
 }
 
+function SocialLinks() {
+  const links = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abigail-licata-456929103/', icon: <span className="social-lettermark social-linkedin">in</span> },
+    {
+      label: 'Bluesky',
+      href: 'https://bsky.app/profile/licataae.bsky.social',
+      icon: (
+        <svg className="bluesky-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 11.1C10.8 8.8 7.5 4.5 4.5 2.5 1.6.6.5.9.5 3.8c0 .6.3 5.2.5 5.9.7 2.3 3.1 3.1 5.2 2.7-3.7.6-7 2.1-2.7 6.9 4.7 4.9 6.4-1.1 7-3.3.6 2.2 2.3 8.2 7 3.3 4.3-4.8 1-6.3-2.7-6.9 2.1.4 4.5-.4 5.2-2.7.2-.7.5-5.3.5-5.9 0-2.9-1.1-3.2-4-1.3-3 2-6.3 6.3-7.5 8.6Z" />
+        </svg>
+      ),
+    },
+    { label: 'ORCID', href: 'https://orcid.org/my-orcid?orcid=0000-0003-2278-0856', icon: <span className="social-lettermark">iD</span> },
+    { label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Abigail-Licata?ev=hdr_xprf', icon: <span className="social-lettermark">RG</span> },
+    { label: 'Email Abigail Licata', href: 'mailto:alicata3098@gmail.com', icon: <Mail size={17} /> },
+  ]
+
+  return (
+    <div className="social-links" aria-label="Professional profiles and contact">
+      {links.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          aria-label={link.label}
+          title={link.label}
+          {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+        >
+          {link.icon}
+        </a>
+      ))}
+    </div>
+  )
+}
+
 function App() {
   return (
     <div className="site-shell" id="top">
@@ -310,6 +341,7 @@ function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <h1 id="hero-title">Abigail Licata</h1>
+            <SocialLinks />
             <p className="role">PhD candidate in neuroscience at the University of Geneva.</p>
             <p className="statement">Neuroimaging, Language, Open Science.</p>
             <a className="primary-link" href="#about">
@@ -394,7 +426,6 @@ function App() {
           <div className="profile-section-heading">
             <span className="section-index">04</span>
             <h2 id="outreach-title">Outreach</h2>
-            <p>Building communities around open, collaborative and reproducible science.</p>
           </div>
           <ProfileList items={outreachItems} />
         </section>
@@ -403,7 +434,6 @@ function App() {
           <div className="profile-section-heading">
             <span className="section-index">05</span>
             <h2 id="grants-title">Grants &amp; Awards</h2>
-            <p>Competitive support and recognition for research, mobility and open science education.</p>
           </div>
           <ProfileList items={grants} />
         </section>
