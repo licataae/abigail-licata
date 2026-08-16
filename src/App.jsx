@@ -4,33 +4,33 @@ import { publications } from './data/publications'
 
 const experiences = [
   {
-    city: 'Geneva', country: 'Switzerland', x: 77, y: 46,
+    city: 'Geneva', country: 'Switzerland',
     entries: [
       ['2024–present', 'Graduate Teaching Assistant', 'University of Geneva'],
       ['2022–present', 'Ph.D. in Neuroscience · Graduate Research Assistant', 'University of Geneva · NoCE Lab'],
     ],
   },
   {
-    city: 'San Sebastián', country: 'Spain', x: 62, y: 49,
+    city: 'San Sebastián', country: 'Spain',
     entries: [['Summer 2025', 'Guest Researcher', 'Brain Rhythms and Cognition Lab · Basque Center on Cognition, Brain and Language']],
   },
   {
-    city: 'San Francisco', country: 'USA', x: 13, y: 49,
+    city: 'San Francisco', country: 'USA',
     entries: [['2020–2022', 'Staff Research Associate III · Imaging Data Assistant', 'UCSF Memory and Aging Center · ALBA Lab']],
   },
   {
-    city: 'Baltimore', country: 'USA', x: 41, y: 35,
+    city: 'Baltimore', country: 'USA',
     entries: [['Summer 2019', 'Guest Researcher', 'Language Neuromodulation Lab · Johns Hopkins School of Medicine']],
   },
   {
-    city: 'Munich', country: 'Germany', x: 75, y: 29,
+    city: 'Munich', country: 'Germany',
     entries: [
       ['2017–2019', 'Graduate Research Assistant', 'Klinikum rechts der Isar · TUM'],
       ['2016–2018', 'M.Sc. in Neuro-Cognitive Psychology', 'Ludwig Maximilian University of Munich'],
     ],
   },
   {
-    city: 'Cincinnati', country: 'USA', x: 30, y: 45,
+    city: 'Cincinnati', country: 'USA',
     entries: [
       ['Spring 2016', 'Undergraduate Teaching Assistant', 'University of Cincinnati'],
       ['2015–2016', 'Laboratory Manager', 'Laboratory for Cognitive and Affective Neuropsychology'],
@@ -41,26 +41,25 @@ const experiences = [
 ]
 
 const outreachItems = [
-  ['2025–present', 'Open Science Delegate', 'actionuni der Schweizer Mittelbau'],
-  ['2025–present', 'Steering Committee Member', 'Global ReproducibiliTea Steering Committee'],
-  ['2025–present', 'Student Representative', 'Lemanic Neuroscience Doctoral School'],
-  ['2024–2025', 'Co-organizer', 'R Quarto Workshop for Reproducible Research'],
-  ['2024–present', 'Member', 'Swiss Reproducibility Network Academy'],
-  ['2023–present', 'Co-organizer', 'ReproducibiliTea Journal Club Geneva'],
-  ['2022–present', 'Member', 'Swiss Reproducibility Network · Geneva Node'],
-  ['2022–2025', 'Board Member', 'Women in Neuroscience Repository'],
-  ['2022', 'Local Event Organizer', 'Brainhack Geneva'],
-  ['2016–2018', 'Member', 'Elite Network of Bavaria'],
-  ['2015–2016', 'Member', 'Fossil Free UC'],
-  ['2014–2016', 'Member', 'University of Cincinnati NeuroSociety'],
-  ['2013', 'Co-President', 'University of Cincinnati Clermont College Psychology Club'],
+  ['2025–present', 'actionuni der Schweizer Mittelbau', 'Open Science Delegate'],
+  ['2025–present', 'Global ReproducibiliTea Steering Committee', 'Steering Committee Member'],
+  ['2025–present', 'Lemanic Neuroscience Doctoral School', 'Student Representative'],
+  ['2024–2025', 'R Quarto Workshop for Reproducible Research', 'Co-organizer'],
+  ['2024–present', 'Swiss Reproducibility Network Academy', 'Member'],
+  ['2023–present', 'ReproducibiliTea Journal Club Geneva', 'Co-organizer'],
+  ['2022–present', 'Swiss Reproducibility Network · Geneva Node', 'Member'],
+  ['2022–2025', 'Women in Neuroscience Repository', 'Board Member'],
+  ['2022', 'Brainhack Geneva', 'Local Event Organizer'],
+  ['2016–2018', 'Elite Network of Bavaria', 'Member'],
+  ['2015–2016', 'Fossil Free UC', 'Member'],
+  ['2014–2016', 'University of Cincinnati NeuroSociety', 'Member'],
+  ['2013', 'University of Cincinnati Clermont College Psychology Club', 'Co-President'],
 ]
 
 const grants = [
   ['2025', 'Grant supporting Open Science Education', 'University of Geneva'],
   ['2025', 'Jean Falk-Vairant Award', 'Lemanic Neuroscience Doctoral School'],
   ['2025', 'Doc-Mobility Research Grant', 'University of Geneva'],
-  ['June 2023', '12th Summer School', 'International Max Planck Research School'],
   ['2017–2019', 'German Academic Exchange Service Scholarship', 'DAAD'],
   ['2016', 'Arthur Bills Award for Outstanding Undergraduate Research', 'University of Cincinnati'],
   ['2015', 'SUMR-UC Fellowship', 'University of Cincinnati'],
@@ -69,15 +68,18 @@ const grants = [
 
 const teachingItems = [
   ['2024–present', 'Graduate Teaching Assistant', 'Cognitive Neuroscience of Language · University of Geneva'],
-  ['2025–present', 'Master’s thesis mentor · Enrique Marcos', 'MEG data collection and N400 responses to French ambiguous words and sentences'],
-  ['2025–present', 'Master’s thesis mentor · Thomas Hill', 'Cross-linguistic differences in motion events using non-verbal cognitive tasks'],
-  ['2023–2025', 'Master’s thesis mentor · Lina Langauer', 'Free word associations and parametric modulation analysis of fMRI data'],
-  ['2023–2025', 'Master’s thesis mentor · Tatiana Falquet', 'Behavioral paradigm design, Python, inverse multidimensional scaling and preregistration'],
-  ['June 2023', 'Research methods mentor · Susanne Cambi', 'Audio transcription workflows, R, Python, Git and reproducible project organization'],
-  ['Spring 2016', 'Undergraduate Teaching Assistant', 'Research Methods in Neuropsychology · University of Cincinnati'],
+  ['2023–present', 'Mentorship', 'Five students within the Cognitive Psychology and Neuroscience programs at the University of Geneva'],
+  ['Spring 2016', 'Undergraduate Teaching Assistant', 'PSYC5059 · Research Methods in Neuropsychology · University of Cincinnati'],
 ]
 
-const navItems = ['About', 'Experience', 'Publications', 'Outreach', 'Grants', 'Teaching']
+const navItems = [
+  ['About', 'about'],
+  ['Experience', 'experience'],
+  ['Publications', 'publications'],
+  ['Outreach', 'outreach'],
+  ['Grants & Awards', 'grants'],
+  ['Teaching & Mentoring', 'teaching'],
+]
 
 function mulberry32(seed) {
   return () => {
@@ -233,9 +235,9 @@ function Header() {
       </button>
 
       <nav id="primary-navigation" className={open ? 'site-nav is-open' : 'site-nav'} aria-label="Primary navigation">
-        {navItems.map((item) => (
-          <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setOpen(false)}>
-            {item}
+        {navItems.map(([label, id]) => (
+          <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+            {label}
           </a>
         ))}
         <a className="contact-link" href="mailto:abigail.licata@unige.ch">
@@ -247,43 +249,34 @@ function Header() {
 }
 
 function ExperienceMap() {
-  const [selectedCity, setSelectedCity] = useState('Geneva')
-  const selected = experiences.find((experience) => experience.city === selectedCity)
-
   return (
     <div className="experience-layout">
-      <div className="experience-map" aria-label="Map of education and work experience">
-        <svg viewBox="0 0 100 62" role="img" aria-labelledby="map-title map-description">
-          <title id="map-title">Academic experience across the United States and Europe</title>
-          <desc id="map-description">Locations in Cincinnati, Munich, San Francisco and Geneva.</desc>
-          <path className="map-line" d="M2 12 8 7 17 6 24 9 31 8 37 13 35 19 39 24 35 30 31 33 30 42 25 49 20 48 16 41 12 37 8 31 5 27 7 20Z" />
-          <path className="map-line" d="M58 5 63 3 68 6 70 10 75 11 78 16 77 22 82 25 79 30 73 31 70 38 66 41 62 36 60 29 55 25 57 19 54 14Z" />
-          <path className="map-line map-line-muted" d="M36 20 C45 17 52 18 59 21 M34 29 C45 27 54 28 63 31" />
-        </svg>
-        {experiences.map((experience) => (
-          <button
-            className={selectedCity === experience.city ? 'map-pin is-active' : 'map-pin'}
-            key={experience.city}
-            style={{ left: `${experience.x}%`, top: `${experience.y}%` }}
-            type="button"
-            onClick={() => setSelectedCity(experience.city)}
-            aria-pressed={selectedCity === experience.city}
-          >
-            <span className="pin-dot" />
-            <span>{experience.city}</span>
-          </button>
-        ))}
-        <p className="map-instruction">Select a location to explore the experience</p>
+      <div className="map-prompt">
+        <strong>Education and research across six locations.</strong>
+      </div>
+      <div className="experience-map">
+        <img
+          className="map-geography"
+          src="/atlantic-map.svg"
+          alt="Map marking Geneva, San Sebastián, San Francisco, Baltimore, Munich and Cincinnati."
+        />
       </div>
 
-      <div className="experience-detail" aria-live="polite">
-        <p className="experience-location">{selected.city} · {selected.country}</p>
-        {selected.entries.map(([period, role, organization]) => (
-          <article key={`${period}-${role}`}>
-            <span>{period}</span>
-            <h3>{role}</h3>
-            <p>{organization}</p>
-          </article>
+      <div className="experience-list">
+        {experiences.map((experience) => (
+          <div className="experience-group" key={experience.city}>
+            <div className="experience-group-heading">
+              <span>{experience.city}</span>
+              <small>{experience.country}</small>
+            </div>
+            {experience.entries.map(([period, role, organization]) => (
+              <article key={`${period}-${role}`}>
+                <span>{period}</span>
+                <h3>{role}</h3>
+                <p>{organization}</p>
+              </article>
+            ))}
+          </div>
         ))}
       </div>
     </div>
@@ -309,7 +302,7 @@ function ProfileList({ items }) {
 function App() {
   return (
     <div className="site-shell" id="top">
-      <BrainField />
+      <div className="neuron-background" aria-hidden="true" />
       <div className="ambient-shade" aria-hidden="true" />
       <Header />
 
@@ -323,7 +316,6 @@ function App() {
               Learn more <ArrowDownRight size={19} />
             </a>
           </div>
-          <span className="scroll-note" aria-hidden="true">Scroll to explore <i /></span>
         </section>
 
         <section className="research-section" id="about" aria-labelledby="about-title">
@@ -335,7 +327,7 @@ function App() {
           <div className="research-intro">
             <p>
               With a background in the neuroimaging of language function in both healthy
-              and clinical populations, and research experience across three countries,
+              and clinical populations, and research experience across four countries,
               my research interests span language (dis)function across the lifespan,
               cross-linguistic influences on language processing in multilingual speakers,
               and open and reproducible neuroimaging practices.
@@ -410,8 +402,8 @@ function App() {
         <section className="profile-section" id="grants" aria-labelledby="grants-title">
           <div className="profile-section-heading">
             <span className="section-index">05</span>
-            <h2 id="grants-title">Grants</h2>
-            <p>Competitive support for research, mobility and open science education.</p>
+            <h2 id="grants-title">Grants &amp; Awards</h2>
+            <p>Competitive support and recognition for research, mobility and open science education.</p>
           </div>
           <ProfileList items={grants} />
         </section>
@@ -419,8 +411,8 @@ function App() {
         <section className="profile-section" id="teaching" aria-labelledby="teaching-title">
           <div className="profile-section-heading">
             <span className="section-index">06</span>
-            <h2 id="teaching-title">Teaching</h2>
-            <p>Teaching and mentoring across neuroscience, language and reproducible methods.</p>
+            <h2 id="teaching-title">Teaching &amp; Mentoring</h2>
+            <p>Teaching and mentorship across language, cognitive psychology and neuroscience.</p>
           </div>
           <ProfileList items={teachingItems} />
         </section>

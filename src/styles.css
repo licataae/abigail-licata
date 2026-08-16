@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
   background: var(--bg);
 }
 
@@ -58,11 +59,12 @@ a:focus-visible {
   overflow: hidden;
 }
 
-.brain-field {
+.neuron-background {
   position: fixed;
   inset: 0;
   z-index: -3;
-  opacity: 0.82;
+  background: var(--bg) url('/neuron-background.png') center center / cover no-repeat;
+  opacity: 0.72;
   pointer-events: none;
 }
 
@@ -77,7 +79,7 @@ a:focus-visible {
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -88,6 +90,9 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
+  background: rgba(8, 10, 9, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .brand {
@@ -187,6 +192,10 @@ main {
   z-index: 1;
 }
 
+section[id] {
+  scroll-margin-top: 110px;
+}
+
 .hero {
   position: relative;
   min-height: min(760px, 71svh);
@@ -237,27 +246,6 @@ main {
   margin-top: 2.25rem;
   padding: 0 1.7rem;
   font-size: 0.94rem;
-}
-
-.scroll-note {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 3rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: rgba(211, 209, 196, 0.58);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-}
-
-.scroll-note i {
-  display: block;
-  width: 1px;
-  height: 54px;
-  background: var(--line);
 }
 
 .research-section,
@@ -337,107 +325,101 @@ main {
 }
 
 .experience-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr);
-  gap: clamp(3rem, 7vw, 8rem);
-  align-items: stretch;
+  display: block;
+}
+
+.map-prompt {
+  max-width: 760px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.map-prompt strong {
+  color: var(--ivory);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.45rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.map-prompt span {
+  color: #88897f;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .experience-map {
   position: relative;
-  min-height: 520px;
+  width: min(100%, 1050px);
+  margin: 0 auto;
+  min-height: 0;
+  aspect-ratio: 100 / 62;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.experience-map svg {
+.map-geography {
   position: absolute;
-  inset: 8% 2% 10%;
-  width: 96%;
-  height: 82%;
-  overflow: visible;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.78;
 }
 
-.map-line {
-  fill: rgba(235, 232, 215, 0.015);
-  stroke: rgba(235, 232, 215, 0.3);
-  stroke-width: 0.24;
-  vector-effect: non-scaling-stroke;
+.experience-list {
+  margin-top: clamp(3rem, 6vw, 6rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.map-line-muted {
-  fill: none;
-  stroke: rgba(214, 110, 54, 0.15);
-  stroke-dasharray: 1 1.5;
-}
-
-.map-pin {
-  position: absolute;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #aaa99a;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  font-size: 0.67rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transform: translate(-6px, -50%);
-  cursor: pointer;
-  transition: color 180ms ease;
-}
-
-.pin-dot {
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
+.experience-group {
+  min-width: 0;
+  padding: 2rem;
   background: var(--bg);
-  box-shadow: 0 0 0 4px rgba(214, 110, 54, 0.08);
-  transition: background 180ms ease, transform 180ms ease;
+  box-shadow: inset 0 2px 0 transparent;
+  transition: background 180ms ease, box-shadow 180ms ease;
 }
 
-.map-pin:hover,
-.map-pin.is-active {
+.experience-group-heading {
+  width: 100%;
+  padding: 0 0 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   color: var(--ivory);
+  text-align: left;
 }
 
-.map-pin.is-active .pin-dot {
-  background: var(--accent);
-  transform: scale(1.25);
+.experience-group-heading > span {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.9rem;
 }
 
-.map-instruction {
-  position: absolute;
-  left: 0;
-  bottom: 1.5rem;
-  margin: 0;
-  color: #77796f;
-  font-size: 0.72rem;
-}
-
-.experience-detail {
-  border-top: 1px solid var(--line);
-}
-
-.experience-location {
-  margin: 0;
-  padding: 1.5rem 0;
+.experience-group-heading small {
   color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.experience-group article {
+  padding: 1.35rem 0;
   border-bottom: 1px solid var(--line);
 }
 
-.experience-detail article {
-  padding: 1.7rem 0;
-  border-bottom: 1px solid var(--line);
+.experience-group article:last-child {
+  border-bottom: 0;
 }
 
-.experience-detail article > span,
+.experience-group article > span,
 .profile-list article > span {
   color: #77796f;
   font-size: 0.7rem;
@@ -445,7 +427,7 @@ main {
   text-transform: uppercase;
 }
 
-.experience-detail h3,
+.experience-group h3,
 .profile-list h3 {
   margin: 0.55rem 0 0;
   color: var(--ivory);
@@ -455,7 +437,7 @@ main {
   line-height: 1.08;
 }
 
-.experience-detail article p,
+.experience-group article p,
 .profile-list article p {
   margin: 0.55rem 0 0;
   color: #94958b;
@@ -747,9 +729,24 @@ footer a {
   gap: clamp(1rem, 2.5vw, 2.5rem);
 }
 
+@media (max-width: 1100px) and (min-width: 821px) {
+  .site-nav {
+    gap: 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .contact-link {
+    padding: 0 1rem;
+  }
+
+  .experience-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 820px) {
   .site-header {
-    position: absolute;
+    position: fixed;
     height: 78px;
   }
 
@@ -836,10 +833,6 @@ footer a {
     font-size: clamp(2.1rem, 9.5vw, 3.1rem);
   }
 
-  .scroll-note {
-    display: none;
-  }
-
   .research-section {
     padding: 5rem 0;
     display: block;
@@ -877,24 +870,26 @@ footer a {
   }
 
   .experience-map {
-    min-height: 390px;
+    min-height: 0;
   }
 
-  .experience-detail,
+  .experience-list,
   .profile-list {
     margin-top: 3rem;
   }
 
-  .map-pin {
-    font-size: 0.58rem;
+  .map-prompt {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
-  .map-pin > span:last-child {
-    display: none;
+  .experience-list {
+    grid-template-columns: 1fr;
   }
 
-  .map-pin.is-active > span:last-child {
-    display: inline;
+  .experience-group {
+    padding: 1.5rem 0;
   }
 
   .profile-section-heading p {
